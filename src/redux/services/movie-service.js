@@ -4,7 +4,7 @@ export const movieServiceApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getTopTen: builder.query({
       query: () => ({
-        url: `/movie/top_rated`,
+        url: '/movie/top_rated?language=en-US&region=US',
         method: "GET",
       }),
       // transformResponse: response => response.data,
@@ -20,7 +20,7 @@ export const movieServiceApi = baseApi.injectEndpoints({
     singleMovie: builder.query({
       query: (body) => {
         return {
-          url: `/movie/${body.id}`,
+          url: `/movie/${body.id}?append_to_response=credits,release_dates,videos`,
           method: "GET",
         };
       },

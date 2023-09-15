@@ -1,9 +1,9 @@
 import React from "react";
 import { styled } from "styled-components";
 import Logo from "../../assets/images/tv.png";
-const Brand = () => {
+const Brand = ({color}) => {
   return (
-    <Brand.Wrapper>
+    <Brand.Wrapper color={color}>
       <img src={Logo} alt="logo" />
 
       <h1>MovieBox</h1>
@@ -25,7 +25,7 @@ Brand.Wrapper = styled.div`
   h1 {
     font-size: 24px;
     line-height: 24px;
-    color: white;
+    color: ${props=> props.color? props.color : "white" };
   }
 `;
 export default Brand;

@@ -8,7 +8,6 @@ const Navbar = () => {
   return (
     <Navbar.Wrapper>
       <Brand />
-
       <SearchBar />
       <SignInMenu />
     </Navbar.Wrapper>
@@ -23,6 +22,7 @@ Navbar.Wrapper = styled.nav`
   justify-content: space-between;
   align-items: center;
   // background: red;
+  z-index: 10;
   padding: 0 8%;
 `;
 export default Navbar;
