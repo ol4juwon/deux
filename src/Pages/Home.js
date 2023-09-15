@@ -4,7 +4,7 @@ import loaderImg from "../assets/images/Walk.gif";
 import Navbar from "../Components/Navbar/Navbar";
 import {
   useGetTopTenQuery,
-  useSearchMoviesQuery,
+  // useSearchMoviesQuery,
 } from "../redux/services/movie-service";
 import Footer from "../Components/Footer/Footer";
 import Slider from "../Components/Carousel";
@@ -13,7 +13,7 @@ const Home = () => {
   const {
     data: topTenMovies,
     isLoading: isLoadingTopTen,
-    error: topTenError,
+    // error: topTenError,
   } = useGetTopTenQuery();
   // const [searchMovies]= useSearchMoviesMutation();
   // console.log(topTenMovies);

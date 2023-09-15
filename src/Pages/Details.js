@@ -12,10 +12,6 @@ const Details = (props) => {
   const { match } = props.data;
   const params = match.params;
   const { data, isLoading, isError } = useSingleMovieQuery(params);
-  const [movieInfo, setMovieInfo] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [usCertification, setUsCertification] = useState("");
-  const [formattedRuntime, setFormattedRuntime] = useState("");
   console.log(data?.release_date?.split("-")[0], data);
   const formatDateToUTC = (dateString) => {
     const date = new Date(dateString);
@@ -61,16 +57,17 @@ const Details = (props) => {
         <div className="bottom ">
           <div className="title mb-4">
             <div className="w-1/2 h-auto ">
-              <h3>
-                {data?.title || data?.name} <span>•</span>
-                {data?.release_date
-                  ? data?.release_date?.split("-")[0]
-                  : data?.first_air_date?.split("-")[0]}
+              <span data-testid="movie-title" className="w-auto font-bold">
+                {data?.title || data?.name}</span> <span>•</span>
+                <span data-testid="movie-release-date">{data?.release_date||
+                   data?.first_air_date} </span>
                 <span>•</span>
                 {data?.adult ? "18" : "PG-13"}
                 <span>•</span>
-                {formatTime(data?.runtime)}
-              </h3>
+               <span data-testid="movie-runtime">
+               {data?.runtime}
+                </span> mins
+              
             </div>
             <div className="w-1/2 h-full flex-row flex justify-between" >
               <div>
@@ -87,7 +84,7 @@ const Details = (props) => {
           </div>
           <div className="details">
             <div className="overview w-4/6">
-              <p>{data?.overview}</p>
+              <p data-testid="movie-overview">{data?.overview}</p>
               <h4>Director:<span className="crew">{data?.credits?.crew[0]?.name}</span></h4>
               <h4>Writer: <span className="crew">{data?.credits?.crew[0]?.name}</span></h4>
               <h4>Stars:<span className="crew">{data?.credits?.cast[0]?.name}</span> </h4>

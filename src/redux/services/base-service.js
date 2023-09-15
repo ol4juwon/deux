@@ -6,10 +6,10 @@ import { Config } from '../../util/config';
 export const baseApi = createApi({
   reducerPath: 'tmdbApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: Config.BASE_URL,
+    baseUrl: Config?.BASE_URL,
 
     prepareHeaders: headers => {
-        const clientJwtToken = Config.AUTH_TOKEN       
+        const clientJwtToken = Config?.AUTH_TOKEN     
         if (clientJwtToken) {
           headers.set('authorization', `Bearer ${clientJwtToken}`);
           // headers.set("client-id", clientJwtToken );

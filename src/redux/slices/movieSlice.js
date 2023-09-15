@@ -1,8 +1,8 @@
 
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { Config } from "../../util/config";
+import { createSlice } from "@reduxjs/toolkit";
+// import { Config } from "../../util/config";
 
-import { useGetTopTenQuery, useSearchMoviesQuery } from "../services/movie-service"; // Import the necessary hooks from movieServiceApi
+// import { useGetTopTenQuery, useSearchMoviesQuery } from "../services/movie-service"; // Import the necessary hooks from movieServiceApi
 
 
 const initialState = {

@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import { Config } from "../../util/config";
 const Card = ({data}) => {
   const history = useHistory();
-  const image = `${Config.IMAGE_BASE_URL}${data.poster_path}`;
+  const image = `${process.env.REACT_APP_IMAGE_BASE_URL || Config.IMAGE_BASE_URL}${data.poster_path}`;
   const title = data.title || data.name;
   const formatTitle = (title) => {
 if(title.length > 40){
