@@ -1,9 +1,11 @@
 import React from "react";
 import { styled } from "styled-components";
 import Logo from "../../assets/images/tv.png";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const Brand = ({color}) => {
+  const history  = useHistory();
   return (
-    <Brand.Wrapper color={color}>
+    <Brand.Wrapper color={color} onClick={() => history.push('/')}>
       <img src={Logo} alt="logo" />
 
       <h1>MovieBox</h1>

@@ -1,9 +1,9 @@
 import React from "react";
 import MenuIcon from "../../assets/images/Menu.svg";
 import { styled } from "styled-components";
-const SignInMenu = () => {
+const SignInMenu = ({color}) => {
   return (
-    <SignInMenu.Wrapper>
+    <SignInMenu.Wrapper color={color}>
       <h2 className="h2">Sign In</h2>
       <img src={MenuIcon} alt="menu" />
     </SignInMenu.Wrapper>
@@ -17,7 +17,7 @@ SignInMenu.Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   .h2 {
-    color: white;
+    color: ${props => props.color? props.color: "white"};
   }
   img {
     width: 36px;

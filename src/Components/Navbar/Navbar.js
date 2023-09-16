@@ -4,12 +4,12 @@ import Brand from "../Brand/Brand";
 import SearchBar from "../SearchBar";
 import SignInMenu from "../SignIn";
 
-const Navbar = () => {
+const Navbar = ({color}) => {
   return (
     <Navbar.Wrapper>
-      <Brand />
-      <SearchBar />
-      <SignInMenu />
+      <Brand color={color}/>
+      <SearchBar color={color}/>
+      <SignInMenu  color={color}/>
     </Navbar.Wrapper>
   );
 };

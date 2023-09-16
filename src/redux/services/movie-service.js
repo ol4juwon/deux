@@ -12,7 +12,7 @@ export const movieServiceApi = baseApi.injectEndpoints({
     searchMovies: builder.mutation({
       query: (body) => {
         return {
-          url: `/keyword/${body.keyword}`,
+          url: `/search/multi?query=${body}`,
           method: "GET",
         };
       },

@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import Loader from "./Components/HOC/loader";
 import Details from "./Pages/Details";
 import withSuspense from "./Components/HOC/withSuspense";
+import SearchPage from "./Pages/Search";
 // import withSuspense from "./Components/HOC/withSuspense";
 const Home = lazy(() => import("./Pages/Home"));
 const NotFound = lazy(()=> import("./Pages/NotFound"));
@@ -34,6 +35,7 @@ function App() {
         <Switch>
       <Route path="/" exact={true} component={() => <Home />} />
       <Route path="/movies/:id" exact={true} component={(e) => <Details  data={e}/>} />
+      <Route path="/search/:query" exact={true} component={(e) => <SearchPage  data={e}/>} />
 
           {/* {paths === "/" ? (
         <Redirect to={<Home />} />
