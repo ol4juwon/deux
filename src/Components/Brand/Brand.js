@@ -6,9 +6,9 @@ const Brand = ({color}) => {
   const history  = useHistory();
   return (
     <Brand.Wrapper color={color} onClick={() => history.push('/')}>
-      <img src={Logo} alt="logo" />
+      <img src={Logo} alt="logo"/>
 
-      <h1>MovieBox</h1>
+      <h1  className="max-sm:hidden" >MovieBox</h1>
     </Brand.Wrapper>
   );
 };
@@ -28,6 +28,9 @@ Brand.Wrapper = styled.div`
     font-size: 24px;
     line-height: 24px;
     color: ${props=> props.color? props.color : "white" };
+  }
+  @media not all and (min-width: 640px) {
+    justify-content: left;
   }
 `;
 export default Brand;

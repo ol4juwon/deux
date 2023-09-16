@@ -53,5 +53,14 @@ justify-content: space-around;
   font-size: 16px;
   color: #111827;
 }
+@media not all and (min-width: 640px) {
+ justify-content: center;
+ padding: 10px;
+ .icons, .terms {
+  width: 100%;
+  background: red;
+ }
+
+}
 `
 export default Footer

@@ -13,7 +13,7 @@ const Featured = ({data, isLoading}) => {
 
         <span className='text text-red-700 text-lg font-extralight'>see more {">"}</span>
         </div>
-        <div className='grid grid-cols-4 grid-rows-3 gap-y-8 gap-x-8' >
+        <div className='grid max-sm:grid-cols-1 grid-cols-4 grid-rows-3 gap-y-8 gap-x-8' >
             {data?.results?.map((item, index) => <Card data={item} key={index}/>)}
             {isLoading && <Loader />}
         </div>

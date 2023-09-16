@@ -37,9 +37,9 @@ setShow(true);
   history.push(`/search/${searchText}`);
  }
   return (
-    <SearchBar.Wrapper color={color}>
+    <SearchBar.Wrapper className="flex max-sm:hidden max-md:hidden max-lg:hidden" color={color}>
       <input
-        className="input-field"
+        className="input-field max-md:hidden "
         placeholder="What do you want to watch?"
         prefix=""
         value={searchText}
@@ -59,10 +59,10 @@ setShow(true);
 SearchBar.Wrapper = styled.div`
   max-width: 525px;
   width: 60%;
+  // display: none;
   height: 36px;
   border-radius: 6px;
   outline: 1px solid ${props => props.color? props.color: "white"};
-  display: flex;
   align-items: center;
   justify-content: space-between;
   .input-field {

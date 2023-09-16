@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 const SignInMenu = ({color}) => {
   return (
     <SignInMenu.Wrapper color={color}>
-      <h2 className="h2">Sign In</h2>
+      <h2 className="h2 max-md:hidden">Sign In</h2>
       <img src={MenuIcon} alt="menu" />
     </SignInMenu.Wrapper>
   );
@@ -22,6 +22,9 @@ SignInMenu.Wrapper = styled.div`
   img {
     width: 36px;
     height: 36px;
+  }
+  @media not all and (min-width: 640px) {
+    justify-content: right;
   }
 `;
 export default SignInMenu;

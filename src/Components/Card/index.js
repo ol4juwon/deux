@@ -29,7 +29,7 @@ return title;
         </div>
         <div className="details">
          <div className="date">
-         <h4>USA,{" "}</h4> <h4 data-testid="movie-release-date"> {data?.release_date?.split("-")[0] || data?.first_air_date?.split("-")[0]}</h4>
+         <h4>USA,{" "}</h4> <h4 data-testid="movie-release-date"> {data?.release_date|| data?.first_air_date}</h4>
           
           </div> 
           <h2 data-testid="movie-title">{formatTitle(title)}</h2>
