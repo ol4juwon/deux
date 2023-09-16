@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../Components/Navbar/Navbar'
+import Navbar from '../Components/Navbar/Navbar';
 import { styled } from 'styled-components'
 import { useSearchMoviesMutation } from '../redux/services/movie-service';
 import Loader from '../Components/HOC/loader';
