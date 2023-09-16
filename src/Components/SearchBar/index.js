@@ -45,7 +45,7 @@ setShow(true);
       >
 
       </input>
-      <i className="fa fa-search icon"></i>
+      <i className="fa fa-search icon" onClick={handlePress}></i>
 
     </SearchBar.Wrapper>
   );

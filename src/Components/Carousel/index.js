@@ -23,16 +23,16 @@ const Slider = ({data}) => {
 const swiperRef = useRef();
 useEffect(()=>{
 if(swiperRef.current){
-  console.log(swiperRef.current);
+  // console.log(swiperRef.current);
 }
 },[swiperRef])
   return (
     <Slider.Wrapper>
              <Swiper
              ref={swiperRef}
-        pagination={pagination}
+        // pagination={pagination}
         direction={'vertical'}
-        modules={[Pagination, Autoplay]}
+        modules={[ Autoplay]}
         className="mySwiper"
         autoplay={{
           delay: 2500,
