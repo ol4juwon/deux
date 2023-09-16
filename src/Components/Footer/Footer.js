@@ -58,7 +58,6 @@ justify-content: space-around;
  padding: 10px;
  .icons, .terms {
   width: 100%;
-  background: red;
  }
 
 }
