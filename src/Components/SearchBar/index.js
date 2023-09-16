@@ -21,8 +21,8 @@ const SearchBar = ({color}) => {
 
 
  }
- const handleOut = (e) => {
-
+ const handleSearch = (e) => {
+  history.push(`/search/${searchText}`);
  }
 
  const handleChange = async(e) => {
@@ -45,7 +45,7 @@ setShow(true);
       >
 
       </input>
-      <i className="fa fa-search icon" onClick={handlePress}></i>
+      <i className="fa fa-search icon" onClick={handleSearch}></i>
 
     </SearchBar.Wrapper>
   );
@@ -63,7 +63,7 @@ SearchBar.Wrapper = styled.div`
     background: transparent;
     width: 100%;
     height: 36px;
-    color: white;
+    color: ${props => props.color? props.color: "white"};
     border-radius: 6px;
     padding-left: 10px;
     padding-right: 40px; /* Add space for the suffix icon */
