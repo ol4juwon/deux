@@ -30,9 +30,9 @@ if(swiperRef.current){
     <Slider.Wrapper>
              <Swiper
              ref={swiperRef}
-        // pagination={pagination}
+        pagination={pagination}
         direction={'vertical'}
-        modules={[ Autoplay]}
+        modules={[Pagination, Autoplay]}
         className="mySwiper"
         autoplay={{
           delay: 2500,

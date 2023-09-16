@@ -21,8 +21,8 @@ const SearchBar = ({color}) => {
 
 
  }
- const handleSearch = (e) => {
-  history.push(`/search/${searchText}`);
+ const handleOut = (e) => {
+
  }
 
  const handleChange = async(e) => {
@@ -31,6 +31,10 @@ setSearchText(e.target.value)
 const response = await  searchMovies({keyword: e.target.value});
 setResults(response.data.results);
 setShow(true);
+ }
+
+ const handleSearch = () =>{
+  history.push(`/search/${searchText}`);
  }
   return (
     <SearchBar.Wrapper color={color}>
@@ -46,7 +50,9 @@ setShow(true);
 
       </input>
       <i className="fa fa-search icon" onClick={handleSearch}></i>
-
+      {show && results.length > 0 && <div className="results grid grid-cols-4 gap-x-10 grid-rows-1">
+      {results.length > 0 && setShow &&  results.map((item, index) => index < 4 && <Card key={index} data={item} />)}
+      </div>}
     </SearchBar.Wrapper>
   );
 };
