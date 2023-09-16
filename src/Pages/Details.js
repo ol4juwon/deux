@@ -13,20 +13,13 @@ const Details = (props) => {
   const params = match.params;
   const { data, isLoading, isError } = useSingleMovieQuery(params);
   console.log(data?.release_date?.split("-")[0], data);
-  const formatDateToUTC = (dateString) => {
-    const date = new Date(dateString);
-    const options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "2-digit",
-      minutes: "2-digit",
-      seconds: "2-digit",
-      milliseconds: "2-digit",
-      timeZone: "UTC",
-    };
-    return date.toLocaleDateString("en-US", options);
-  };
+  const formatDateToUTC = (date) => {
+
+    const utcDate = new Date(date);
+    const utcString = utcDate.toISOString();
+    // console.log(utcString)
+    return utcString;
+  }
   function formatTime(minutes) {
     const hours = Math.floor(minutes / 60);
     const remainingMinutes = minutes % 60;
@@ -42,7 +35,7 @@ const Details = (props) => {
   return isLoading ? (
     <Loader />
   ) : (
-    <Details.Wrapper>
+    <Details.Wrapper className="max-sm:flex-col max-sm:flex max-sm:h-auto max-md:h-auto">
       <Sidebar />
       <div className="container rounded-2xl">
         <div className="top h-1/2 rounded-2xl bg-blue-500">
@@ -54,13 +47,13 @@ const Details = (props) => {
             title="trailer"
           ></iframe>
         </div>
-        <div className="bottom ">
-          <div className="title mb-4">
-            <div className="w-1/2 h-auto ">
+        <div className="bottom max-sm:flex-col max-sm:h-auto ">
+          <div className="title mb-4 max-sm:w-full max-sm:flex-col">
+            <div className="w-1/2 max-sm:w-full h-auto ">
               <span data-testid="movie-title" className="w-auto font-bold">
                 {data?.title || data?.name}</span> <span>•</span>
-                <span data-testid="movie-release-date">{data?.release_date||
-                   data?.first_air_date} </span>
+                <span data-testid="movie-release-date">{formatDateToUTC(data?.release_date||
+                   data?.first_air_date)} </span>
                 <span>•</span>
                 {data?.adult ? "18" : "PG-13"}
                 <span>•</span>
@@ -82,8 +75,8 @@ const Details = (props) => {
               </div>
             </div>
           </div>
-          <div className="details">
-            <div className="overview w-4/6">
+          <div className="details max-sm:flex-col max-sm:h-auto">
+            <div className="overview w-full height:auto">
               <p data-testid="movie-overview">{data?.overview}</p>
               <h4>Director:<span className="crew">{data?.credits?.crew[0]?.name}</span></h4>
               <h4>Writer: <span className="crew">{data?.credits?.crew[0]?.name}</span></h4>
@@ -124,6 +117,23 @@ const Details = (props) => {
 Details.Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
+  @media not all and (min-width: 640px) {
+    flex-direction: column;
+    .container{
+      width: 100%;
+      // background:red;
+      border-radius: 0;
+    }
+    .bottom{
+      height: auto;
+      width: 100%;
+    }
+    .details{
+      flex-direction: column;
+      // background: red;
+      height: auto;
+    }
+  }
   display: flex;
   flex-direction: row;
   .genre{

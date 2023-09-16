@@ -15,6 +15,13 @@ return `${title.substr(0,40)}...`
 }
 return title;
   }
+  const formatDateToUTC = (date) => {
+
+    const utcDate = new Date(date);
+    const utcString = utcDate.toISOString();
+    // console.log(utcString)
+    return utcString;
+  }
   return (
     <a href={`/movies/${data.id}`}>
       <Card.Wrapper data-testid="movie-card" image={image}>
@@ -29,7 +36,7 @@ return title;
         </div>
         <div className="details">
          <div className="date">
-         <h4>USA,{" "}</h4> <h4 data-testid="movie-release-date"> {data?.release_date|| data?.first_air_date}</h4>
+         <h4>USA,{" "}</h4> <h4 data-testid="movie-release-date"> {formatDateToUTC(data?.release_date||data?.first_air_date)}</h4>
           
           </div> 
           <h2 data-testid="movie-title">{formatTitle(title)}</h2>
@@ -46,7 +53,7 @@ return title;
           </div>
           <h3>Action</h3>
         </div>
-      </Card.Wrapper>{" "}
+      </Card.Wrapper>
     </a>
   );
 };

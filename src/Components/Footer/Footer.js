@@ -59,6 +59,9 @@ justify-content: space-around;
  .icons, .terms {
   width: 100%;
  }
+ .icons{
+  justify-content: space-evenly;
+ }
 
 }
 `

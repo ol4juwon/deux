@@ -2,6 +2,13 @@ import React from "react";
 import { styled } from "styled-components";
 
 const Main = ({ data }) => {
+  const formatDateToUTC = (date) => {
+
+    const utcDate = new Date(date);
+    const utcString = utcDate.toISOString();
+    // console.log(utcString)
+    return utcString;
+  }
   return (
     <Main.Wrapper>
       <div className="trailer"></div>

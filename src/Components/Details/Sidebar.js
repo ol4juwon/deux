@@ -12,7 +12,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const Sidebar = () => {
   const history = useHistory();
   return (
-    <Sidebar.Wrapper className="flex w-[222px] py-10 justify-between items-center md:block  font-bold  rounded-tr-2xl">
+    <Sidebar.Wrapper className="flex w-[222px] max-sm:h-10 py-10 justify-between items-center md:block  font-bold  rounded-tr-2xl">
       {/* <Link to={"/"}> */}
       <div
         onClick={() => {
@@ -21,7 +21,7 @@ const Sidebar = () => {
         className="flex items-center px-6 md:mb-10 md:pt-4"
       >
         <img src={Logo} alt="logo" className="w-10" />
-        <h1 className="ml-2"> Movie Box</h1>
+        <h1 className="ml-2 max-md:invisible"> Movie Box</h1>
       </div>
       {/* </Link> */}
       <div className="flex md:block text-gray-400">
@@ -74,8 +74,8 @@ const Sidebar = () => {
   );
 };
 Sidebar.Wrapper = styled.nav`
-  height: 100%;
-  width: 220px;
+  // height: 100%;
+  // width: 220px;
   // padding:1rem;
   // display: flex;
   // flex-direction: column;
@@ -95,5 +95,8 @@ Sidebar.Wrapper = styled.nav`
   // .fa{
   //   font-size: 25px;
   // }
+  @media not all and (min-width: 640px) {
+    border: none;
+  }
 `;
 export default Sidebar;
