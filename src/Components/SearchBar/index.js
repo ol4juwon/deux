@@ -9,22 +9,28 @@ const SearchBar = ({color}) => {
  const [searchMovies] =  useSearchMoviesMutation();
  const [searchText, setSearchText] = useState();
  const [results, setResults] = useState([]);
+ const [show, setShow] = useState(false);
  const handlePress = async (e) => {
   e.preventDefault();
   if (e.key === 'Enter') {
     // Perform your action here, e.g., trigger a search
     console.log('Enter key pressed');
+    setShow(false);
     history.push(`/search/${searchText}`);
   }
 
 
  }
+ const handleOut = (e) => {
+
+ }
 
  const handleChange = async(e) => {
-console.log(e.target.value)
+  setShow(false);
 setSearchText(e.target.value)
-const response = await  searchMovies({keyword: searchText});
+const response = await  searchMovies({keyword: e.target.value});
 setResults(response.data.results);
+setShow(true);
  }
   return (
     <SearchBar.Wrapper color={color}>
@@ -35,13 +41,13 @@ setResults(response.data.results);
         value={searchText}
         onChange={handleChange}
         onKeyUp={handlePress}
-  
+        
       >
 
       </input>
       <i className="fa fa-search icon"></i>
-      {results.length > 0 && <div className="results grid grid-cols-4 gap-x-10 grid-rows-1">
-      {results.length > 0 && results.map((item, index) => index < 4 && <Card key={index} data={item} />)}
+      {show && results.length > 0 && <div className="results grid grid-cols-4 gap-x-10 grid-rows-1">
+      {results.length > 0 && setShow &&  results.map((item, index) => index < 4 && <Card key={index} data={item} />)}
       </div>}
     </SearchBar.Wrapper>
   );
